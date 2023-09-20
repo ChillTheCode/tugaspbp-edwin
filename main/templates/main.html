@@ -1,12 +1,50 @@
-<h1>NIKM Finder (Maung-Apollo)</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>WIN POSTER (Maung-Apollo)</h1>
 
 <h5>Dibuat oleh {{name}} dari kelas {{class}} </h5>
 <p> Deskripsi Singkat <p>
-<p>NIKM Finder (Maung-Apollo) merupakan aplikasi berbasis web yang bertujuan untuk memberikan informasi mengenai nikm dari nama mahasiswa yang dijadikan input. Aplikasi ini dikhususkan untuk {{jumlah_angkatan}} di fasilkom, yaitu maung, chronos, bakung, dan apollo.<p>
+<p> Website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.<p>
 
 <label for="Name">Name:</label>
 <input type="text" id="Name" name="Name">
 
 <input type="submit">
 
-<img src="https://sidang.cs.ui.ac.id/static/media/fasilkom.5f08cf824cb2e94af912.png" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
+<img src="https://akcdn.detik.net.id/visual/2015/01/17/b1ad8766-abe8-4d4d-87cd-b948530246e4_169.jpg?w=650" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
+
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.date_added}}</td>
+
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Product
+    </button>
+</a>
+
+
+{% endblock content %}

@@ -1,4 +1,4 @@
-
+Tugas 2
 Untuk mengimplementasikan checklist tugas Django, saya akan membuat sebuah aplikasi untuk mencari NIKM mahasiswa Fasilkom UI angkatan 2019-2020. Berikut adalah langkah-langkah yang saya lakukan:
 
 1. Membuat proyek Django baru
@@ -144,3 +144,133 @@ Secara keseluruhan, penggunaan virtual environment sangat disarankan untuk penge
 Kita disarankan untuk menggunakan virtual environment jika kita ingin membuat aplikasi web berbasis Django yang mudah dikelola dan dapat dibagikan dengan orang lain.
 
 
+Tugas 3
+
+Dalam Django, POST form maupun GET form mengacu pada dua metode berbeda untuk mengirimkan data dari halaman web ke server.
+
+POST Form:
+
+Metode: Data dikirimkan dalam tubuh permintaan HTTP.
+
+Visibilitas: Data tidak terlihat di URL.
+
+Keamanan: Dianggap lebih aman untuk informasi sensitif seperti kata sandi karena data tidak terlihat secara langsung di URL. Namun, ini tidak berarti data terenkripsi. Anda masih harus menggunakan HTTPS untuk komunikasi yang aman.
+
+Ukuran Data: Dapat menangani jumlah data yang besar.
+
+Idempoten: Tidak idempoten, artinya permintaan yang identik dapat memiliki efek yang berbeda.
+
+Penggunaan: Biasanya digunakan saat mengirimkan formulir yang melibatkan informasi sensitif, seperti formulir login, atau saat mengirimkan data yang mungkin mengubah status server.
+
+Penggunaan di Django: Dalam Django, saat Anda mendefinisikan formulir di HTML, biasanya Anda akan menggunakan elemen <form> dengan method="post".
+
+
+GET Form:
+
+Metode: Data ditambahkan ke URL sebagai parameter kueri.
+
+Visibilitas: Data terlihat di URL.
+
+Keamanan: Kurang aman untuk informasi sensitif karena data terlihat di URL. Hindari menggunakannya untuk kata sandi atau informasi sensitif lainnya.
+
+Ukuran Data: Ada batasan pada jumlah data yang dapat ditangani. URL memiliki batasan panjang maksimum, dan beberapa browser dan server memberlakukan batasan pada panjang URL.
+
+Idempoten: Idempoten, artinya permintaan yang identik akan memiliki efek yang sama.
+
+Penggunaan: Sering digunakan untuk formulir pencarian sederhana, di mana parameter pencarian dapat dienkripsi dalam URL.
+
+Penggunaan di Django: Di Django, Anda menggunakan elemen <form> yang sama di HTML, tetapi dengan method="get".
+
+Pilihan antara menggunakan POST form dan GET form tergantung pada sifat data yang dikirimkan dan persyaratan khusus dari aplikasi Anda. Gunakan POST untuk informasi sensitif dan ketika operasinya tidak idempoten. Gunakan GET untuk operasi di mana parameter dapat dengan mudah dimasukkan dalam URL, seperti pencarian atau penyaringan.
+
+
+
+Perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data adalah sebagai berikut:
+
+XML (eXtensible Markup Language) adalah format data yang berbasis teks dan dapat dibaca mesin. XML digunakan untuk mendefinisikan struktur data yang kompleks. XML dapat digunakan untuk mengirim berbagai jenis data, termasuk data yang terstruktur, semi-terstruktur, dan tidak terstruktur.
+
+JSON (JavaScript Object Notation) adalah format data yang berbasis teks dan mudah dibaca manusia. JSON digunakan untuk mewakili data dalam bentuk objek dan array. JSON sering digunakan untuk mengirim data dari aplikasi web ke server.
+
+HTML (Hypertext Markup Language) adalah format data yang berbasis teks dan digunakan untuk membuat halaman web. HTML tidak digunakan untuk mengirim data, tetapi dapat digunakan untuk menampilkan data yang dikirim dalam format XML atau JSON.
+
+XML adalah format data yang serbaguna yang dapat digunakan untuk mengirim berbagai jenis data. JSON adalah format data yang mudah dibaca manusia yang sering digunakan untuk mengirim data dari aplikasi web ke server. HTML adalah format data yang digunakan untuk membuat halaman web, tetapi tidak digunakan untuk mengirim data.
+
+
+JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena beberapa alasan, yaitu:
+
+Kompatibilitas: JSON adalah format data yang populer dan didukung oleh berbagai bahasa pemrograman dan platform.
+Kemudahan penggunaan: JSON mudah dibaca dan ditulis oleh manusia, sehingga memudahkan pengembang untuk memahami dan bekerja dengan data yang dipertukarkan.
+Kinerja: JSON relatif kecil dan mudah diurai, sehingga tidak membebani jaringan atau server.
+Efisiensi: JSON dapat digunakan untuk mewakili berbagai jenis data, termasuk data yang terstruktur, semi-terstruktur, dan tidak terstruktur.
+
+Berikut adalah beberapa contoh penggunaan JSON dalam pertukaran data antara aplikasi web modern:
+
+Mentransfer data dari aplikasi web ke server: JSON sering digunakan untuk mentransfer data dari aplikasi web ke server, seperti data formulir, data pengguna, atau data produk.
+Mentransfer data dari server ke aplikasi web: JSON juga sering digunakan untuk mentransfer data dari server ke aplikasi web, seperti data hasil pencarian, data berita, atau data produk.
+Mentransfer data antar aplikasi web: JSON dapat digunakan untuk mentransfer data antar aplikasi web, seperti data yang digunakan untuk sinkronisasi data atau untuk berbagi data.
+
+Secara umum, JSON adalah format data yang ideal untuk pertukaran data antara aplikasi web modern. JSON mudah digunakan, efisien, dan kompatibel dengan berbagai bahasa pemrograman dan platform.
+
+
+Untuk mengimplementasikan checklist tugas Django untuk Implementasi Form dan Data Delivery pada Django, saya mengganti tema website saya yang sebelumnya membuat sebuah aplikasi untuk mencari NIKM mahasiswa Fasilkom UI angkatan 2019-2020, menjadi tempat untuk membeli poster. Berikut adalah langkah-langkah yang saya lakukan:
+
+
+Langkah 1: Mengatur Routing dari main/ ke /
+
+Buka file urls.py yang ada dalam folder pbpedwin
+Ubah path dari main/ menjadi '' pada urlpatterns.
+python
+
+Langkah 2: Implementasi Skeleton sebagai Kerangka Views
+
+Buat folder templates di dalam root folder.
+Buat file HTML baru bernama base.html di dalam folder templates.
+Isi file base.html dengan kode yang diberikan.
+
+Langkah 3: Membuat Form Input Data dan Menampilkan Data Produk Pada HTML
+
+Buat file forms.py di dalam folder main.
+Tambahkan kode untuk membuat form ProductForm yang menggunakan model Product.
+python
+Buka file views.py di dalam folder main.
+Tambahkan import yang diperlukan dan buat fungsi create_product.
+
+Langkah 4: Menampilkan Data Produk Pada Halaman Utama
+
+Buka file views.py di dalam folder main.
+Ubah fungsi show_main untuk mengambil seluruh objek Product dari database.
+python
+
+Langkah 5: Mengembalikan Data dalam Bentuk XML
+
+Buka file views.py di dalam folder main.
+Tambahkan import dan buat fungsi show_xml untuk mengembalikan data dalam bentuk XML.
+
+Langkah 6: Mengembalikan Data dalam Bentuk JSON
+
+Buka file views.py di dalam folder main.
+Tambahkan import dan buat fungsi show_json untuk mengembalikan data dalam bentuk JSON.
+
+Langkah 7: Mengembalikan Data Berdasarkan ID dalam Bentuk XML dan JSON
+
+Buka file views.py di dalam folder main.
+Tambahkan import dan buat fungsi show_xml_by_id dan show_json_by_id untuk mengembalikan data berdasarkan ID dalam bentuk XML dan JSON.
+
+Langkah 8: Penggunaan Postman Sebagai Data Viewer
+
+Pastikan server berjalan dengan perintah python manage.py runserver.
+Buka Postman dan buat request GET dengan URL http://localhost:8000/xml atau http://localhost:8000/json untuk menguji pengembalian data.
+
+Langkah 9: Penutup
+
+Pastikan struktur direktori lokal sudah benar.
+Lakukan add, commit, dan push untuk memperbarui repositori GitHub.
+
+
+
+
+Lampiran Screenshot Postman
+
+![Alt text](<Screenshot (2016).png>)
+
+![Alt text](<Screenshot (2017).png>)
