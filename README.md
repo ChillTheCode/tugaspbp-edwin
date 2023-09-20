@@ -214,6 +214,7 @@ Secara umum, JSON adalah format data yang ideal untuk pertukaran data antara apl
 
 Untuk mengimplementasikan checklist tugas Django untuk Implementasi Form dan Data Delivery pada Django, saya mengganti tema website saya yang sebelumnya membuat sebuah aplikasi untuk mencari NIKM mahasiswa Fasilkom UI angkatan 2019-2020, menjadi tempat untuk membeli poster. Berikut adalah langkah-langkah yang saya lakukan:
 
+Langkah 0: Ubah berkas main.html menjadi sesuai yang diinginkan
 
 Langkah 1: Mengatur Routing dari main/ ke /
 
