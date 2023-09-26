@@ -2,57 +2,109 @@
 
 {% block content %}
 
-<h1>WINSTER</h1>
-<h5>Dibuat oleh {{name}} dari kelas {{class}} </h5>
-<p> Deskripsi Singkat <p>
-<p> Winster merupakan website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.<p>
+<div class="header">
+    <h1>WINSTER</h1>
+    <h5>Dibuat oleh {{name}} dari kelas {{class}}</h5>
+</div>
 
-<label for="Name">Name:</label>
-<input type="text" id="Name" name="Name">
+<div class="description">
+    <p>Deskripsi Singkat</p>
+    <p>Winster merupakan website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.</p>
+</div>
 
-<input type="submit">
+<div class="form">
+    <label for="Name">Name:</label>
+    <input type="text" id="Name" name="Name">
+    <input type="submit">
+</div>
 
-<img src="https://akcdn.detik.net.id/visual/2015/01/17/b1ad8766-abe8-4d4d-87cd-b948530246e4_169.jpg?w=650" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
+<div class="image">
+    <img src="https://akcdn.detik.net.id/visual/2015/01/17/b1ad8766-abe8-4d4d-87cd-b948530246e4_169.jpg?w=650" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
+</div>
 
-</body>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Date Added</th>
-        <th>Amount</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for product in products %}
+<div class="product-table">
+    <table>
         <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.date_added}}</td>
-            <td>{{product.amount}}</td>
-            
-
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Date Added</th>
         </tr>
-    {% endfor %}
-</table>
 
-<br />
+        {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.date_added}}</td>
+                <td>{{product.amount}}</td>
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Product
-    </button>
-</a>
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
+<div class="login-info">
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+</div>
+
+<div class="buttons">
+    <a href="{% url 'main:create_product' %}">
+        <button class="btn-primary">
+            Add New Product
+        </button>
+    </a>
+    <a href="{% url 'main:logout' %}">
+        <button class="btn-secondary">
+            Logout
+        </button>
+    </a>
+</div>
+
+<style>
+    /* Add your CSS styles here */
+    .header {
+        text-align: center;
+    }
+
+    .description {
+        margin: 20px 0;
+    }
+
+    .form input {
+        margin-right: 10px;
+    }
+
+    .image {
+        text-align: center;
+    }
+
+    .product-table {
+        margin-top: 20px;
+    }
+
+    .product-table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .product-table th, .product-table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+
+    .login-info {
+        margin-top: 20px;
+    }
+
+    .buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .buttons button {
+        margin: 0 10px;
+    }
+</style>
 
 {% endblock content %}
