@@ -2,11 +2,10 @@
 
 {% block content %}
 
-<h1>WIN POSTER (Maung-Apollo)</h1>
-
+<h1>WINSTER</h1>
 <h5>Dibuat oleh {{name}} dari kelas {{class}} </h5>
 <p> Deskripsi Singkat <p>
-<p> Website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.<p>
+<p> Winster merupakan website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.<p>
 
 <label for="Name">Name:</label>
 <input type="text" id="Name" name="Name">
@@ -15,7 +14,7 @@
 
 <img src="https://akcdn.detik.net.id/visual/2015/01/17/b1ad8766-abe8-4d4d-87cd-b948530246e4_169.jpg?w=650" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
 
-
+</body>
 
 <table>
     <tr>
@@ -23,6 +22,7 @@
         <th>Price</th>
         <th>Description</th>
         <th>Date Added</th>
+        <th>Amount</th>
     </tr>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -33,6 +33,8 @@
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
             <td>{{product.date_added}}</td>
+            <td>{{product.amount}}</td>
+            
 
         </tr>
     {% endfor %}
@@ -40,11 +42,17 @@
 
 <br />
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <a href="{% url 'main:create_product' %}">
     <button>
         Add New Product
     </button>
 </a>
-
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
 
 {% endblock content %}
