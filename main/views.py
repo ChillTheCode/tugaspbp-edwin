@@ -23,7 +23,7 @@ def show_main(request):
 
     context = {
         'name': request.user.username,
-        'class': 'PBP A', # Kelas PBP kamu
+        'class': 'PBP E',
         'products': products,
         'last_login': request.COOKIES['last_login'],
     }
@@ -97,3 +97,4 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+

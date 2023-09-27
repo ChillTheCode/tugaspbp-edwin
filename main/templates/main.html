@@ -12,33 +12,34 @@
     <p>Winster merupakan website yang menjual poster film dapat menjadi pilihan bagi penggemar film untuk mendapatkan poster film favorit mereka. Situs web ini juga dapat menjadi peluang bisnis bagi penjual poster film untuk memasarkan produk mereka secara online.</p>
 </div>
 
-<div class="form">
-    <label for="Name">Name:</label>
-    <input type="text" id="Name" name="Name">
-    <input type="submit">
-</div>
 
 <div class="image">
-    <img src="https://akcdn.detik.net.id/visual/2015/01/17/b1ad8766-abe8-4d4d-87cd-b948530246e4_169.jpg?w=650" alt="Deskripsi Gambar" width="110" height="110" style="margin-top: 0px; margin-left: 100px;">
+    <img src="https://getwallpapers.com/wallpaper/full/6/4/b/1267891-download-free-movie-poster-wallpaper-1920x1080-screen.jpg" alt="Deskripsi Gambar" width="1000" height="500" style="margin-top: 0px; margin-left: 100px;">
 </div>
 
 <div class="product-table">
     <table>
         <tr>
             <th>Name</th>
+            <th>Amount</th>
             <th>Price</th>
             <th>Description</th>
             <th>Date Added</th>
+            
+
+
            
         </tr>
 
         {% for product in products %}
             <tr>
                 <td>{{product.name}}</td>
+                <td>{{product.amount}}</td>
                 <td>{{product.price}}</td>
                 <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
                 
+ 
+         
 
             </tr>
         {% endfor %}
@@ -64,6 +65,10 @@
 
 <style>
     /* Add your CSS styles here */
+    body {
+        background-color: #ADD8E6; 
+        font-family: Georgia, serif;
+    }
     .header {
         text-align: center;
     }
@@ -90,7 +95,7 @@
     }
 
     .product-table th, .product-table td {
-        border: 1px solid #ccc;
+        border: 1px solid #000000;
         padding: 8px;
     }
 
