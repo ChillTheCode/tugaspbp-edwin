@@ -6,8 +6,30 @@
 
 {% block content %}
 
-<div class = "login">
+<style>
+    .login {
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+    }
 
+    .login table {
+        width: 100%;
+    }
+
+    .login input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .login .btn {
+        width: auto;
+    }
+</style>
+
+<div class="login">
     <h1>Login</h1>
 
     <form method="POST" action="">
@@ -38,8 +60,7 @@
         </ul>
     {% endif %}     
         
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
+    <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
 </div>
 
 {% endblock content %}
