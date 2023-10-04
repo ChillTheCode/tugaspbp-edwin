@@ -3,7 +3,7 @@ Untuk mengimplementasikan checklist tugas Django, saya akan membuat sebuah aplik
 
 1. Membuat proyek Django baru
 
-Saya menggunakan perintah django-admin startproject untuk membuat proyek Django baru dengan nama myproject.
+Saya menggunakan perintah django-admin startproject untuk membuat proyek Django baru dengan nama pbpedwin.
 
 django-admin startproject pbpedwin
 
@@ -383,3 +383,144 @@ Penggunaan cookies dalam pengembangan web memiliki beberapa risiko potensial yan
 12. Menampilkan Informasi Terakhir Login di Template
 
     - Tambahkan kode untuk menampilkan informasi terakhir login di berkas `main.html`.
+
+
+
+
+Tugas 5
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+
+Manfaat dan Waktu yang Tepat Menggunakan Selector CSS
+
+Selector CSS digunakan untuk menarget elemen HTML pada halaman web yang ingin kita style. Ada berbagai jenis selector CSS yang tersedia, yang memungkinkan kita untuk memilih elemen dengan presisi tinggi untuk diberi style.
+
+Ada beberapa jenis selector yang umum digunakan:
+
+Type Selector: Menarget elemen berdasarkan nama tag-nya. Misalnya, h1 {color: red;} akan menerapkan warna merah ke semua elemen h1.
+Class Selector: Menarget elemen yang memiliki nilai tertentu untuk atribut class-nya. Misalnya, .box {background-color: blue;} akan menerapkan background biru ke semua elemen dengan class "box" .
+ID Selector: Menarget elemen yang memiliki nilai tertentu untuk atribut id-nya. Misalnya, #unique {font-size: 16px;} akan menerapkan ukuran font 16px ke elemen dengan ID "unique" 
+Attribute Selector: Menarget elemen berdasarkan atribut dan nilai atribut tertentu. Misalnya, a[title] {text-decoration: none;} akan menghapus underline pada semua elemen a yang memiliki atribut title.
+
+Pilih selector berdasarkan kebutuhan. Gunakan type selector untuk mengubah style semua elemen dengan tag yang sama. Gunakan class selector untuk mengubah style elemen tertentu yang memiliki class yang sama. Gunakan ID selector untuk mengubah style satu elemen unik dengan ID tertentu. Gunakan attribute selector untuk mengubah style elemen berdasarkan atribut dan nilai atributnya.
+
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+Tag HTML5 yang Umum Digunakan
+
+<header>: Digunakan untuk navigasi link atau konten pendahuluan 
+<section>: Mendefinisikan bagian di mana tidak ada elemen HTML semantik yang lebih spesifik untuk mewakilinya
+<article>: Mewakili bagian independen dari konten yang masuk akal sendiri 
+<aside>: Digunakan untuk konten yang agak terpisah dari konten sekitarnya dan bisa dianggap independen 
+<footer>: Digunakan untuk footer dari suatu bagian atau seluruh halaman 
+<em> dan <i>: Digunakan untuk menekankan teks 
+<label> dan <textarea>: Digunakan dalam form input
+<audio>: Digunakan untuk memasukkan file audio ke halaman web 
+<iframe>: Digunakan untuk menyertakan dokumen HTML independen ke dalam dokumen HTML saat ini
+
+
+3.  Jelaskan perbedaan antara margin dan padding
+
+Perbedaan antara Margin dan Padding
+
+Margin dan padding adalah dua metode dalam CSS yang digunakan untuk mengatur jarak antara elemen. Margin berada di luar batas elemen dan tidak dihitung sebagai bagian dari elemen itu sendiri, sedangkan padding berada di dalam batas elemen dan dihitung sebagai bagian dari elemen itu sendiri.
+
+Margin: Merupakan ruang di sekitar elemen. Margin digunakan untuk menggerakkan elemen naik atau turun pada halaman serta ke kiri atau ke kanan. Margin bening dan tidak memiliki warna latar belakang. Margin digunakan untuk membuat jarak, mendorong elemen lain menjauh
+
+Padding: Merupakan ruang antara elemen dan konten terkait di dalamnya. Padding menentukan bagaimana elemen terlihat dan duduk dalam suatu container. Padding bisa dipengaruhi oleh warna latar belakang karena membersihkan area di sekitar konten. Untuk membuat jarak, padding bisa memperbesar ukuran elemen atau mengecilkan konten di dalamnya 
+
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+Perbedaan antara Framework CSS Tailwind dan Bootstrap
+
+Tailwind dan Bootstrap adalah dua framework CSS yang populer. Keduanya memiliki perbedaan yang signifikan dalam hal pendekatan desain, kustomisasi, dan ukuran file.
+
+Bootstrap: Framework ini menggunakan pendekatan berbasis komponen, yang berarti telah memiliki kumpulan komponen siap pakai (seperti tombol, kartu, navbar, dan lainnya) yang bisa langsung digunakan. Bootstrap juga mendukung JavaScript untuk komponen seperti modal dan tooltip. Bootstrap memiliki ukuran file yang lebih besar dibandingkan Tailwind, tetapi bisa diminimalkan menggunakan Bootstrap customizer atau hanya mengimpor komponen yang diperlukan 
+
+Tailwind: Berbeda dengan Bootstrap, Tailwind adalah sebuah utility-first CSS framework. Sebaliknya, Tailwind menyediakan kelas utilitas rendah yang memungkinkan kita membangun desain yang unik tanpa meninggalkan HTML. Tailwind tidak memiliki komponen siap pakai dan tidak mendukung JavaScript. Meskipun memiliki ukuran file yang lebih kecil, Tailwind memerlukan konfigurasi lebih untuk memulai dibandingkan Bootstrap. 
+
+Pilih Bootstrap jika kita membutuhkan komponen siap pakai dan mendukung JavaScript, atau jika kita ingin membangun prototipe dengan cepat. Pilih Tailwind jika kita menginginkan kontrol lebih atas desain kita, atau jika kita berfokus pada ukuran file yang kecil dan performa yang tinggi.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Awalan
+Buka project django pbpedwin, lalu buka file base.html yang telah dibuat sebelumnya pada templates folder yang berada di root project kalian. Didalam templates/base.html, tambahkan tag <meta name="viewport"> agar halaman web kita dapat menyesuaikan ukuran dan perilaku perangkat mobile (apabila belum). Tambahkan script untuk Bootstrap CSS dan juga JS juga. Nantinya akan ada banyak html yang mewariskan fitur dari base.html.
+
+
+Langkah 1: Menambahkan Navbar dengan Bootstrap
+
+Buka file main.html pada editor teks atau IDE kita.
+Temukan bagian yang dimulai dengan <nav class="navbar navbar-expand-lg bg-body-tertiary"> dan akhiri dengan </nav>.
+Dalam Navbar, kita dapat menyesuaikan elemen-elemennya sesuai keinginan, seperti mengubah teks "Navbar" menjadi judul yang diinginkan, menambah atau mengubah item navigasi, dan sebagainya. Navbar ini memiliki tombol navigasi yang dapat di-toggle pada perangkat mobile.
+
+Bootstrap kelas yang digunakan:
+.navbar: Membungkus seluruh Navbar.
+.navbar-brand: Membuat sebuah link dengan teks "Navbar" di dalam Navbar.
+.navbar-toggler: Tombol toggle untuk versi mobile.
+.navbar-collapse: Area yang akan ditoggle pada versi mobile.
+.navbar-nav: Daftar navigasi.
+.nav-item: Item dalam daftar navigasi.
+.nav-link: Link di dalam item navigasi.
+.dropdown: Membuat dropdown.
+.dropdown-menu: Menu dropdown.
+
+
+Langkah 2: Header "WINSTER"
+Temukan bagian dengan class .header.
+Sesuaikan teks dan desain header sesuai keinginan kita. Kita dapat menambahkan elemen HTML tambahan atau mengubah tata letak sesuai kebutuhan.
+
+Langkah 3: Gambar
+Temukan bagian dengan class .image.
+Tambahkan tag <img> untuk menampilkan gambar yang diinginkan di dalam div ini.
+
+Langkah 4: Tabel Produk
+Temukan bagian dengan class .product-table.
+Sesuaikan tampilan tabel atau kontennya sesuai keinginan kita. kita dapat menambahkan atau menghapus kolom, mengubah format tampilan, dan sebagainya.
+
+Langkah 5: Login Info
+Temukan bagian dengan class .login-info.
+Sesuaikan informasi atau tampilan sesuai keinginan kita. kita dapat menambahkan atau mengubah teks, dan menyesuaikan desain elemen.
+
+Langkah 6: Tombol-tombol
+Temukan bagian dengan class .buttons.
+Sesuaikan tombol-tombol "Add New Product" dan "Logout" sesuai keinginan kita. kita dapat menambahkan atau mengubah teks, dan menyesuaikan desain tombol.
+
+Langkah 7: CSS Kustom
+Temukan bagian di akhir file dengan tag <style>.
+Di dalam tag <style>, kita dapat menambahkan atau mengubah properti CSS untuk melakukan kustomisasi tambahan sesuai keinginan kita.
+
+Langkah 8: Background Gambar
+Di dalam tag <style>, temukan atau tambahkan aturan CSS untuk mengatur gambar latar belakang dengan properti background-image. Kalau saya memakai gambar yang saya upload terlebih dahulu lewat Facebook.
+
+Langkah 9: Kustomisasi Tabel Produk
+Di dalam tag <style>, temukan atau tambahkan aturan CSS untuk melakukan kustomisasi pada tampilan kartu produk dengan menggunakan kelas .product-card dan .product-info.
+
+Langkah 10: Pengaturan Warna Kolom Amount
+Di dalam tag <style>, temukan atau tambahkan aturan CSS untuk mengubah warna teks pada kolom "amount" dengan menggunakan kelas .amount.
+
+Langkah 11: Penambahan Tombol Edit dan Hapus
+Temukan bagian dalam tabel produk yang mencakup tombol "Edit" dan "Delete".
+Sesuaikan atau tambahkan URL yang benar sesuai dengan halaman edit dan halaman hapus pada atribut href.
+
+Langkah 12: Edit bagian Navbar
+Pastikan bahwa halaman edit, dropdown menu, dan tombol "Search" sesuai dengan kebutuhan kita.
+
+Langkah  13: Menambahkan Card
+Temukan atau buat elemen di mana kita ingin menampilkan kartu-kartu produk. Buat blok atau iterasi di mana produk kita akan ditampilkan. Lakukan modifikasi sesuai sintaks untuk membuat Card
+
+Contoh:
+{% for product in products %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{ product.description }}</p>
+      <p class="card-text">{{ product.amount }}</p>
+      <p class="card-text">{{ product.date_added }}</p>
+      <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+{% endfor %}
+

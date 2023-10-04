@@ -1,0 +1,104 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Edit Product</h1>
+
+        <form method="POST" class="product-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.amount.id_for_label }}">Amount:</label>
+                {{ form.amount }}
+            </div>
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Edit Product</button>
+                <a href="#" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<style>
+    body {
+        background-color: #3fafff; 
+        font-family: Comic Sans MS, cursive;
+        background-image: url('https://scontent.fcgk33-1.fna.fbcdn.net/v/t39.30808-6/383223953_6528533963932496_5468432556040701948_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=49d041&_nc_eui2=AeE3NNeK-6zbZ5v4m0bCan2IeX4kmNTwKht5fiSY1PAqG6yfjOSwtkHto1GIuZYWJ33QxrY4HpU-4Yrv6C3gXgzl&_nc_ohc=7HLPvACUQ9gAX960kQg&_nc_ht=scontent.fcgk33-1.fna&oh=00_AfDL3YemFghl8NGg1H6olTlus7MkUdV2D9BOql3NWIS7ww&oe=6519868A');
+    }
+    
+    .card {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #3fafff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        opacity: 85%;
+    }
+    
+    .card-title {
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    
+    .product-form {
+        text-align: left;
+    }
+    
+    .form-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center; 
+    }
+    
+    .form-group label {
+        flex: 1;
+        margin-right: 5px;
+        text-align: left;
+        margin: 0 auto;
+    
+    }
+    
+    .form-group input {
+        flex: 3.075;
+        text-align: left;
+        margin: 0 auto;
+    
+        
+        
+        
+    }
+
+
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+</style>
+
+{% endblock %}

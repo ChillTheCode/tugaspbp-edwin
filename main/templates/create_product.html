@@ -1,19 +1,98 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Add New Product</h1>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Add New Poster</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Product"/>
-            </td>
-        </tr>
-    </table>
-</form>
+        <form method="POST" class="product-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Description:</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.amount.id_for_label }}">Amount:</label>
+                {{ form.amount }}
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+body {
+    background-color: #3fafff; 
+    font-family: Comic Sans MS, cursive;
+    background-image: url('https://scontent.fcgk33-1.fna.fbcdn.net/v/t39.30808-6/383223953_6528533963932496_5468432556040701948_n.jpg?stp=cp0_dst-jpg_e15_fr_q65&_nc_cat=107&ccb=1-7&_nc_sid=3fb9c2&efg=eyJpIjoidCJ9&_nc_eui2=AeE3NNeK-6zbZ5v4m0bCan2IeX4kmNTwKht5fiSY1PAqG6yfjOSwtkHto1GIuZYWJ33QxrY4HpU-4Yrv6C3gXgzl&_nc_ohc=rjXUXfJfHy0AX8LIcQV&_nc_ht=scontent.fcgk33-1.fna&oh=00_AfDT8etwY24ptt4oqR0WNgMRazsj_u4RRm6CbqgOwCaZ9Q&oe=65216F8A');
+}
+
+.card {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #3fafff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    opacity: 85%;
+}
+
+.card-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.product-form {
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Tambahkan properti ini */
+}
+
+.form-group label {
+    flex: 1;
+    margin-right: 5px;
+    text-align: left; /* Tambahkan properti ini */
+    margin: 0 auto;
+
+}
+
+.form-group input {
+    flex: 3.075;
+    text-align: left; /* Tambahkan properti ini */
+    margin: 0 auto;
+
+    
+    
+    
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+</style>
 
 {% endblock %}
