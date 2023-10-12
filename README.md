@@ -524,3 +524,48 @@ Contoh:
   </div>
 {% endfor %}
 
+
+Tugas 6 
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Perbedaan antara asynchronous programming dan synchronous programming terletak pada cara mereka mengeksekusi instruksi. Dalam synchronous programming, kode dieksekusi secara berurutan dari atas ke bawah. Setiap operasi harus selesai sebelum yang berikutnya dimulai. Jika suatu operasi memerlukan waktu yang lama (misalnya, permintaan ke server), seluruh aplikasi akan terhenti atau "diblokir" sampai operasi tersebut selesai. Sebaliknya, asynchronous programming memungkinkan operasi yang memerlukan waktu lama untuk diproses di latar belakang, sementara kode lain tetap berjalan. Ini menghindari "pemblokiran" dan membuat aplikasi lebih responsif.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma event-driven programming adalah sebuah pendekatan pemrograman di mana program merespons peristiwa atau kejadian yang terjadi selama eksekusi program. Pada paradigma ini, program tidak berjalan secara linear dari awal hingga akhir, melainkan menunggu peristiwa tertentu untuk terjadi dan menanggapi peristiwa tersebut.
+
+Contoh Penerapannya pada Tugas Ini:
+Pada tugas ini, paradigma event-driven terlihat dalam penggunaan event handler seperti addEventListener pada tombol-tombol atau elemen-elemen interaktif lainnya.
+Contohnya adalah tombol "Add Product by AJAX" yang mengaktifkan modal. Saat tombol ini ditekan, sebuah event dihasilkan dan JavaScript menanggapi event tersebut untuk membuka modal.
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+Asynchronous programming digunakan dalam AJAX untuk menghindari pemblokiran yang disebabkan oleh permintaan ke server. Dalam konteks AJAX, asynchronous berarti bahwa permintaan ke server dilakukan di latar belakang sementara kode lain tetap berjalan. Ketika data dari server diterima, sebuah fungsi callback dipanggil untuk memproses data tersebut. Ini memungkinkan aplikasi untuk tetap responsif, bahkan saat menunggu data dari server.
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Fetch API dan jQuery AJAX adalah dua teknologi yang digunakan untuk membuat permintaan AJAX. Keduanya mendukung asynchronous programming, tetapi ada beberapa perbedaan penting. Fetch API adalah antarmuka bawaan JavaScript yang lebih modern dan fleksibel. Ia menggunakan Promises, yang membuat penanganan permintaan asynchronous lebih mudah dan lebih intuitif. Di sisi lain, jQuery AJAX telah ada lebih lama dan memiliki dukungan yang lebih luas di antara browser lama. Namun, jQuery AJAX menggunakan callback, yang bisa menjadi lebih sulit untuk dikelola ketika permintaan menjadi lebih kompleks.
+Saya lebih memilih Fetch API karena lebih modern dan mengikuti standar ES6 seperti Promises dan async/await. Namun, keputusan tergantung pada kebutuhan proyek dan dukungan browser yang ditargetkan. Jika kita perlu mendukung browser lama, jQuery AJAX dapat menjadi pilihan yang lebih baik
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+Langkah 1: Membuat Fungsi untuk Mengembalikan Data JSON
+Buka berkas views.py dalam folder main.
+Tambahkan fungsi get_product_json sesuai dengan instruksi berikut:
+
+Langkah 2: Membuat Fungsi untuk Menambahkan Produk dengan AJAX
+Buka berkas views.py.
+Tambahkan import csrf_exempt di bagian atas berkas:
+Tambahkan dekorator @csrf_exempt di atas fungsi add_product_ajax:
+
+Langkah 3: Menambahkan Routing Untuk Fungsi get_product_json dan add_product_ajax
+Buka berkas urls.py dalam folder main.
+Tambahkan path URL untuk kedua fungsi tersebut di dalam urlpatterns:
+
+Langkah 4: Menampilkan Data Produk dengan Fetch() API
+Buka berkas main.html dalam folder main/templates.
+Hapus bagian kode table yang sudah Anda buat pada tutorial sebelumnya.
+Gantikan dengan struktur tabel berikut:
+Buat juga fungsi refreshProducts() untuk me-refresh data produk secara asinkron
+
+Langkah 5: Membuat Modal Sebagai Form untuk Menambahkan Produk
+Tambahkan kode modal Bootstrap ke dalam berkas Anda.
+
+Langkah 6: Menambahkan Data Produk dengan AJAX
+Buat fungsi addProduct() dalam blok <script>:
+Tambahkan onclick event pada tombol "Add Product" di dalam modal:
