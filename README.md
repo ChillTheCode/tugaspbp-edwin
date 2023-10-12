@@ -569,3 +569,6 @@ Tambahkan kode modal Bootstrap ke dalam berkas Anda.
 Langkah 6: Menambahkan Data Produk dengan AJAX
 Buat fungsi addProduct() dalam blok <script>:
 Tambahkan onclick event pada tombol "Add Product" di dalam modal:
+
+Link Deploy
+https://edwin-daniel-tugas.pbp.cs.ui.ac.id
