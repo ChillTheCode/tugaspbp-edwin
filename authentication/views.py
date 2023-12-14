@@ -5,6 +5,11 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
 
+
+from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 @csrf_exempt
 def login(request):
     username = request.POST['username']
@@ -13,23 +18,25 @@ def login(request):
     if user is not None:
         if user.is_active:
             auth_login(request, user)
-            # Redirect to a success page.
+            # Status login sukses.
             return JsonResponse({
-              "status": True,
-              "message": "Successfully Logged In!"
-              # Insert any extra data if you want to pass data to Flutter
+                "username": user.username,
+                "status": True,
+                "message": "Login sukses!"
+                # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
             }, status=200)
         else:
             return JsonResponse({
-              "status": False,
-              "message": "Failed to Login, Account Disabled."
+                "status": False,
+                "message": "Login gagal, akun dinonaktifkan."
             }, status=401)
 
     else:
         return JsonResponse({
-          "status": False,
-          "message": "Failed to Login, check your email/password."
+            "status": False,
+            "message": "Login gagal, periksa kembali email atau kata sandi."
         }, status=401)
+    
 
 
 
@@ -49,3 +56,38 @@ def logout(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+    
+
+
+@csrf_exempt
+def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        # Add your registration validation logic here
+        # For example, check if the username is unique and the password is strong enough.
+
+        try:
+            # Create a new user
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+
+            # You may want to perform additional actions here, such as sending a welcome email.
+
+            return JsonResponse({
+                'username': user.username,
+                'status': True,
+                'message': 'Registration successful!',
+            }, status=201)  # HTTP 201 Created for successful resource creation
+        except Exception as e:
+            return JsonResponse({
+                'status': False,
+                'message': f'Registration failed. {str(e)}',
+            }, status=400)  # HTTP 400 Bad Request for registration failure
+
+    else:
+        return JsonResponse({
+            'status': False,
+            'message': 'Invalid request method. Use POST to register.',
+        }, status=405)  # HTTP 405 Method Not Allowed for other request methods

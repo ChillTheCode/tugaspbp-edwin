@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from main.views import create_product_flutter, show_main
 from main.views import show_main, create_product
 from main.views import show_main, create_product, show_xml 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('delete/<int:id>', delete_product, name='delete_product'),
     path('get-product/', get_product_json, name='get_product_json'),
     path('create-product-ajax/', add_product_ajax, name='add_product_ajax'),
+    path('auth/', include('authentication.urls')),
     path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 
 ]
