@@ -90,9 +90,13 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
 
+CSRF_TRUSTED_ORIGINS = ['https://edwin-daniel-tugas.pbp.cs.ui.ac.id/']
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+
 
 DATABASES = {
     'default': {
@@ -101,6 +105,11 @@ DATABASES = {
     }
 }
 
+if PRODUCTION:
+    DATABASES = {
+        'default': env.db('DATABASE_URL')
+    }
+    DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
