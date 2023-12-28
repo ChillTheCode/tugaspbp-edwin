@@ -18,6 +18,11 @@ from pathlib import Path
 import environ # Tambahkan kode berikut
 import os # Tambahkan kode berikut
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env() # Tambahkan kode berikut
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +30,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+
+# Automatically determine environment by detecting if DATABASE_URL variable.
+# DATABASE_URL is provided by Heroku if a database add-on is added (e.g. Heroku Postgres).
+PRODUCTION = env.bool('PRODUCTION', False)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-+xja02wk^^e+%i@od@06h620=8-j=qv+=0d=xywc&vg3*)ypz0'
