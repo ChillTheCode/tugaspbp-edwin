@@ -44,10 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'main',
+    'corsheaders',
     'authentication',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
